@@ -17,13 +17,13 @@
  
 ## how to use
 
->    getAllMembers: function () { *same paragraph*
-      let self = this *same paragraph*
-      axios.get('//fatty-db.herokuapp.com/index.php').then(function (response) { *same paragraph*
-        console.log(response.data.foods) *same paragraph*
-        self.foods = response.data.foods *same paragraph*
-      }) *same paragraph*
-    } *same paragraph*
+>    getAllMembers: function () {
+      let self = this
+      axios.get('//fatty-db.herokuapp.com/index.php').then(function (response) {
+        console.log(response.data.foods)
+        self.foods = response.data.foods
+      })
+    }
 
 
 
