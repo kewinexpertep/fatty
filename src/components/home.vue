@@ -13,7 +13,7 @@
         </div>
       </div>
     </section>
-    <div class="column">
+    <div class="column" v-for="food in foods" :key="food.memid">
       <div class="card">
         <header class="card-header">
           <div class="column is-3">
@@ -28,7 +28,7 @@
               <div class="field">
                 <span class="control">
                    <p class="title is-3">
-                    ข้าวมันไก่
+                    {{food.foodname}}
                   </p>
                 </span>
               </div>
@@ -39,7 +39,7 @@
             <div class="media-content">
               <div class="field">
                 <span class="control">
-                   <p class="title is-3">123</p>
+                   <p class="title is-3">{{food.Energy}}</p>
                    <p class="title is-5">Kcal</p>
                 </span>
               </div>
@@ -94,10 +94,24 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'HelloWorld',
   data () {
     return {
+      foods: []
+    }
+  },
+  mounted () {
+    this.getAllMembers()
+  },
+  methods: {
+    getAllMembers: function () {
+      let self = this
+      axios.get('//fatty-db.herokuapp.com/index.php').then(function (response) {
+        console.log(response.data.foods)
+        self.foods = response.data.foods
+      })
     }
   }
 }
