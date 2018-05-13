@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-    <div v-for="member in members" :key="member.memid">
-      {{member.firstname}}
+    <div v-for="food in foods" :key="food.memid">
+      {{food.foodname}}
     </div>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      members: [],
+      foods: [],
       tmp: 7
     }
   },
@@ -23,8 +23,8 @@ export default {
     getAllMembers: function () {
       let self = this
       axios.get('//fatty-db.herokuapp.com/index.php').then(function (response) {
-        console.log(response.data.members)
-        self.members = response.data.members
+        console.log(response.data.foods)
+        self.foods = response.data.foods
       })
     }
   }
