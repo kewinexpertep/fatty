@@ -1,26 +1,29 @@
 # fatty
-##Api
+## Api
+
+**see all**
 
 >fatty-db.herokuapp.com/
 
-see all
+
 
 >fatty-db.herokuapp.com?crud=search&key=ข้าวสวย
 
-search
+**search**
 
 >fatty-db.herokuapp.com?crud=searches&key[]=ขนมจีน&key[]=สด
 
-search multi key
+**search multi key**
  
-##how to use
+## how to use
+
 >    getAllMembers: function () {
->      let self = this
->      axios.get('//fatty-db.herokuapp.com/index.php').then(function (response) {
->        console.log(response.data.foods)
->        self.foods = response.data.foods
->      })
->    }
+      let self = this
+      axios.get('//fatty-db.herokuapp.com/index.php').then(function (response) {
+        console.log(response.data.foods)
+        self.foods = response.data.foods
+      })
+    }
 
 
 
