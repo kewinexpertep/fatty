@@ -13,14 +13,14 @@
         </div>
       </div>
     </section>
-    <div class="column" v-for="food in foods" :key="food.memid">
+    <div class="column" v-for="food in foods" :key="food.Food_ID">
       <div class="card">
         <header class="card-header">
           <div class="column is-3">
             <figure class="media-left">
-              <p class="image">
-                <img src="https://bulma.io/images/placeholders/128x128.png">
-              </p>
+                <figure class="image is-64x64">
+                  <img src="../assets/foods/f1.png">
+                </figure>
             </figure>
           </div>
           <div class="column is-4 is-offset-1">
@@ -32,7 +32,7 @@
                   </p>
                 </span>
               </div>
-              <button class="button is-danger ">See more</button>
+              <button class="button is-danger" v-if="food.Fat !== ''" @click="flagSeemore = true">See more</button>
             </div>
           </div>
           <div class="column is-3 is-offset-1">
@@ -46,43 +46,33 @@
             </div>
           </div>
         </header>
-        <footer class="card-footer">
+        <footer class="card-footer" v-if="flagSeemore">
           <div class="card-footer-item">
             <div class="card-footer-item">
               <div class="media-content">
-                <div class="field">
-                  <span class="control">
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                  </span>
-                </div>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">น้ำ</strong>{{food.Water}}</p>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">โปรตีน</strong>{{food.Protien}}</p>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">ไขมัน</strong>{{food.Fat}}</p>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">คาร์โบไฮเดรต</strong>{{food.Carbohydrate}}</p>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">ใยอาหาร</strong>{{food.Dietary_Fiber}}</p>
               </div>
             </div>
             <div class="card-footer-item">
               <div class="media-content">
-                <div class="field">
-                  <span class="control">
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                  </span>
-                </div>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">แคลเซียม</strong>{{food.Calcium}}</p>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">ฟอสฟอรัส</strong>{{food.Phosphorus}}</p>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">ธาตุเหล็ก</strong>{{food.Iron}}</p>
               </div>
             </div>
             <div class="card-footer-item">
               <div class="media-content">
-                <div class="field">
-                  <span class="control">
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                    <p class="bd-notification is-primary">น้ำ1</p>
-                  </span>
-                </div>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน A1</strong>{{food.Total_Vit_A}}</p>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">เบตาคาโรทีน</strong>{{food.Betacarotene}}</p>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน B1</strong>{{food.Thiamin}}</p>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน B2</strong>{{food.Riboflavin}}</p>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน E</strong>{{food.VitaminE}}</p>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน B3</strong>{{food.Niacin}}</p>
+                <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน C</strong>{{food.VitaminC}}</p>
               </div>
             </div>
           </div>
@@ -99,7 +89,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      foods: []
+      foods: [],
+      flagSeemore: false
     }
   },
   mounted () {
@@ -132,5 +123,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.name {
+  margin-right: 30px;
 }
 </style>
