@@ -3,19 +3,18 @@
     <div class="column is-8 is-offset-2">
     <section class="hero is-medium is-primary is-bold">
       <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-           Fatty
-          </h1>
-          <div class="column is-6 is-offset-3">
-            <b-field lable="search">
-                <b-input v-model="keyword"
-                placeholder="อาหารที่ต้องการค้นหา"
-                @keyup.native.enter="enter"
-                @input="search()"
-                ></b-input>
-            </b-field>
-          </div>
+        <h1 class="title">
+          Fatty
+        </h1>
+        <div class="column is-4 is-offset-4">
+          <b-field lable="search">
+              <b-input v-model="keyword"
+              placeholder="อาหารที่ต้องการค้นหา"
+              @keyup.native.enter="enter"
+              @input="search()"
+              ></b-input>
+              <button class="button is-danger" @click="search()">search</button>
+          </b-field>
         </div>
       </div>
     </section>
