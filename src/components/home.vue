@@ -56,29 +56,58 @@
           <div class="card-footer-item">
             <div class="card-footer-item">
               <div class="media-content">
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">น้ำ</strong>{{food.Water}}</p>
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">โปรตีน</strong>{{food.Protien}}</p>
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">ไขมัน</strong>{{food.Fat}}</p>
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">คาร์โบไฮเดรต</strong>{{food.Carbohydrate}}</p>
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">ใยอาหาร</strong>{{food.Dietary_Fiber}}</p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">น้ำ</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">โปรตีน</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">ไขมัน</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">คาร์โบไฮเดรต</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">ใยอาหาร</strong></p>
+              </div>
+              <div class="media-content">
+                <p class="bd-notification is-primary has-text-left">{{food.Water}} g.</p>
+                <p class="bd-notification is-primary has-text-left">{{food.Protien}} g.</p>
+                <p class="bd-notification is-primary has-text-left">{{food.Fat}} g.</p>
+                <p class="bd-notification is-primary has-text-left">{{food.Carbohydrate}} g.</p>
+                <p class="bd-notification is-primary has-text-left">{{food.Dietary_Fiber}} g.</p>
               </div>
             </div>
             <div class="card-footer-item">
               <div class="media-content">
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">แคลเซียม</strong>{{food.Calcium}}</p>
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">ฟอสฟอรัส</strong>{{food.Phosphorus}}</p>
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">ธาตุเหล็ก</strong>{{food.Iron}}</p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">แคลเซียม</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">ฟอสฟอรัส</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">ธาตุเหล็ก</strong></p>
+              </div>
+              <div class="media-content">
+                <p class="bd-notification is-primary has-text-left">{{food.Calcium}}</p>
+                <p class="bd-notification is-primary has-text-left">{{food.Phosphorus}}</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Iron !== ''">{{food.Iron}}g.</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Iron == ''">0 g.</p>
               </div>
             </div>
             <div class="card-footer-item">
               <div class="media-content">
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน A1</strong>{{food.Total_Vit_A}}</p>
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">เบตาคาโรทีน</strong>{{food.Betacarotene}}</p>
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน B1</strong>{{food.Thiamin}}</p>
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน B2</strong>{{food.Riboflavin}}</p>
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน E</strong>{{food.VitaminE}}</p>
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน B3</strong>{{food.Niacin}}</p>
-                <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน C</strong>{{food.VitaminC}}</p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน A1</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">เบตาคาโรทีน</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน B1</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน B2</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน E</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน B3</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน C</strong></p>
+              </div>
+              <div class="media-content">
+                <p class="bd-notification is-primary has-text-left" v-if="food.Total_Vit_A == ''">-</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Total_Vit_A !== ''">{{food.Total_Vit_A}}%</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Betacarotene == ''">-</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Betacarotene !== ''">{{food.Betacarotene}}%</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Thiamin == ''">-</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Thiamin !== ''">{{food.Thiamin}}%</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Riboflavin == ''">-</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Riboflavin !== ''">{{food.Riboflavin}}%</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Vitamin_E == ''">-E</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Vitamin_E !== ''">{{food.Vitamin_E}}%</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Niacin == ''">-</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Niacin !== ''">{{food.Niacin}}%</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Vitamin_C == ''">-</p>
+                <p class="bd-notification is-primary has-text-left" v-if="food.Vitamin_C !== ''">{{food.Vitamin_C}}%</p>
               </div>
             </div>
           </div>nam,e
