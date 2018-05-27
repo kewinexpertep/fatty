@@ -8,7 +8,13 @@
            Fatty
           </h1>
           <div class="column is-6 is-offset-3">
-            <input type="text" class="input" placeholder="อาหารที่ต้องการค้นหา">
+            <b-field lable="search">
+                <b-input v-model="keyword"
+                placeholder="อาหารที่ต้องการค้นหา"
+                @keyup.native.enter="enter"
+                @input="search()"
+                ></b-input>
+            </b-field>
           </div>
         </div>
       </div>
@@ -75,7 +81,7 @@
                 <p class="bd-notification is-primary has-text-centered"><strong class="name">วิตามิน C</strong>{{food.VitaminC}}</p>
               </div>
             </div>
-          </div>
+          </div>nam,e
         </footer>
       </div>
     </div>
@@ -90,13 +96,21 @@ export default {
   data () {
     return {
       foods: [],
-      flagSeemore: false
+      flagSeemore: false,
+      keyword: ''
     }
   },
   mounted () {
     this.getAllMembers()
   },
   methods: {
+    search () {
+      let self = this
+      axios.get('//fatty-db.herokuapp.com?crud=search&key=' + this.keyword).then(function (response) {
+        console.log(response.data.foods)
+        self.foods = response.data.foods
+      })
+    },
     getAllMembers: function () {
       let self = this
       axios.get('//fatty-db.herokuapp.com/index.php').then(function (response) {
