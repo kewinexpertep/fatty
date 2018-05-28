@@ -11,7 +11,6 @@
               <b-input v-model="keyword"
               placeholder="อาหารที่ต้องการค้นหา"
               @keyup.native.enter="enter"
-              @input="search()"
               ></b-input>
               <button class="button is-danger" @click="search()">search</button>
           </b-field>
@@ -24,7 +23,24 @@
           <div class="column is-3">
             <figure class="media-left">
                 <figure class="image is-64x64">
-                  <img src="../assets/foods/f1.png">
+                  <img v-if="food.foodtype=='Main dish'" src="../assets/foods/f4.png">
+                  <img v-else-if="food.foodtype=='Fruit'" src="../assets/foods/f6.png">
+                  <img v-else-if="food.foodtype=='Fast food'" src="../assets/foods/f13.png">
+                  <img v-else-if="food.foodtype=='Sweetmeat'" src="../assets/foods/f11.png">
+                  <img v-else-if="food.foodtype=='Bakery'" src="../assets/foods/f16.png">
+                  <img v-else-if="food.foodtype=='Protien'" src="../assets/foods/f14.png">
+                  <img v-else-if="food.foodtype=='Sweeetmeat'" src="../assets/foods/f11.png">
+                  <img v-else-if="food.foodtype=='Fat'" src="../assets/foods/f2.png">
+                  <img v-else-if="food.foodtype=='Other'" src="../assets/foods/f15.png">
+                  <img v-else-if="food.foodtype=='Spices and condiments'" src="../assets/foods/f3.png">
+                  <img v-else-if="food.foodtype=='Milk'" src="../assets/foods/f7.png">
+                  <img v-else-if="food.foodtype=='Egg'" src="../assets/foods/f10.png">
+                  <img v-else-if="food.foodtype=='Fish sea food'" src="../assets/foods/f20.png">
+                  <img v-else-if="food.foodtype=='Meat'" src="../assets/foods/f14.png">
+                  <img v-else-if="food.foodtype=='Vegetables'" src="../assets/foods/f12.png">
+                  <img v-else-if="food.foodtype=='Starchy roots tubes'" src="../assets/foods/f17.png">
+                  <img v-else-if="food.foodtype=='Cereals'" src="../assets/foods/f12.png">
+
                 </figure>
             </figure>
           </div>
@@ -145,6 +161,9 @@ export default {
         console.log(response.data.foods)
         self.foods = response.data.foods
       })
+    },
+    imgFood (str) {
+      return '../assets/foods/f1.png'
     }
   }
 }
