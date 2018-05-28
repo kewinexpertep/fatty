@@ -5,6 +5,7 @@
       <div class="hero-body">
         <h1 class="title">
           Fatty
+          {{sumCal}}
         </h1>
         <div class="column is-4 is-offset-4">
           <b-field lable="search">
@@ -54,6 +55,7 @@
                 </span>
               </div>
               <button class="button is-danger" v-if="food.Fat !== ''" @click="flagSeemore = true">See more</button>
+              <button class="button is-danger" @click="AddCart(food)">Eat now</button>
             </div>
           </div>
           <div class="column is-3 is-offset-1">
@@ -125,7 +127,7 @@
                 <p class="bd-notification is-primary has-text-left" v-if="food.Vitamin_C !== ''">{{food.Vitamin_C}}%</p>
               </div>
             </div>
-          </div>nam,e
+          </div>
         </footer>
       </div>
     </div>
@@ -141,7 +143,8 @@ export default {
     return {
       foods: [],
       flagSeemore: false,
-      keyword: ''
+      keyword: '',
+      Cart: []
     }
   },
   mounted () {
@@ -164,6 +167,18 @@ export default {
     },
     imgFood (str) {
       return '../assets/foods/f1.png'
+    },
+    AddCart (food) {
+      this.Cart.push(food)
+    }
+  },
+  computed: {
+    sumCal () {
+      var sum = 0
+      for (var i = 0; i < this.Cart.length; i++) {
+        sum += parseInt(this.Cart[i].Energy)
+      }
+      return sum
     }
   }
 }
