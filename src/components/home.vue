@@ -11,7 +11,6 @@
           <b-field lable="search">
               <b-input v-model="keyword"
               placeholder="อาหารที่ต้องการค้นหา"
-              @keyup.native.enter="enter"
               ></b-input>
               <button class="button is-danger" @click="search()">search</button>
           </b-field>
@@ -54,7 +53,7 @@
                   </p>
                 </span>
               </div>
-              <button class="button is-danger" v-if="food.Fat !== ''" @click="flagSeemore = true">See more</button>
+              <button class="button is-danger" v-if="food.Fat !== ''" @click="showSeemore(food)">See more</button>
               <button class="button is-danger" @click="AddCart(food)">Eat now</button>
             </div>
           </div>
@@ -69,7 +68,7 @@
             </div>
           </div>
         </header>
-        <footer class="card-footer" v-if="flagSeemore">
+        <footer class="card-footer" v-if="food.Food_ID === tmp">
           <div class="card-footer-item">
             <div class="card-footer-item">
               <div class="media-content">
@@ -127,6 +126,20 @@
                 <p class="bd-notification is-primary has-text-left" v-if="food.Vitamin_C !== ''">{{food.Vitamin_C}}%</p>
               </div>
             </div>
+            <div class="card-footer-item">
+              <div class="media-content">
+                <p class="bd-notification is-primary has-text-left"><strong class="name">เดิน</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">วิ่ง</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">ว่ายน้ำ</strong></p>
+                <p class="bd-notification is-primary has-text-left"><strong class="name">ปั่นจักรยาน</strong></p>
+              </div>
+              <div class="media-content">
+                <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/2.78)}}</p>
+                <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/6.29)}}</p>
+                <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/8.94)}}</p>
+                <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/4.72)}}</p>
+              </div>
+            </div>
           </div>
         </footer>
       </div>
@@ -142,15 +155,22 @@ export default {
   data () {
     return {
       foods: [],
-      flagSeemore: false,
       keyword: '',
-      Cart: []
+      Cart: [],
+      tmp: ''
     }
   },
   mounted () {
     this.getAllMembers()
   },
   methods: {
+    showSeemore (food) {
+      if (this.tmp === food.Food_ID) {
+        this.tmp = ''
+      } else {
+        this.tmp = food.Food_ID
+      }
+    },
     search () {
       let self = this
       axios.get('//fatty-db.herokuapp.com?crud=search&key=' + this.keyword).then(function (response) {
