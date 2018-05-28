@@ -53,7 +53,7 @@
                   </p>
                 </span>
               </div>
-              <button class="button is-danger" v-if="food.Fat !== ''" @click="showSeemore(food)">See more</button>
+              <button class="button is-info" @click="showSeemore(food)">See more</button>
               <button class="button is-danger" @click="AddCart(food)">Eat now</button>
             </div>
           </div>
@@ -70,7 +70,7 @@
         </header>
         <footer class="card-footer" v-if="food.Food_ID === tmp">
           <div class="card-footer-item">
-            <div class="card-footer-item">
+            <div class="card-footer-item" v-if="food.Fat !== ''">
               <div class="media-content">
                 <p class="bd-notification is-primary has-text-left"><strong class="name">น้ำ</strong></p>
                 <p class="bd-notification is-primary has-text-left"><strong class="name">โปรตีน</strong></p>
@@ -86,7 +86,7 @@
                 <p class="bd-notification is-primary has-text-left">{{food.Dietary_Fiber}} g.</p>
               </div>
             </div>
-            <div class="card-footer-item">
+            <div class="card-footer-item" v-if="food.Iron !== ''">
               <div class="media-content">
                 <p class="bd-notification is-primary has-text-left"><strong class="name">แคลเซียม</strong></p>
                 <p class="bd-notification is-primary has-text-left"><strong class="name">ฟอสฟอรัส</strong></p>
@@ -99,7 +99,7 @@
                 <p class="bd-notification is-primary has-text-left" v-if="food.Iron == ''">0 g.</p>
               </div>
             </div>
-            <div class="card-footer-item">
+            <div class="card-footer-item" v-if="food.Total_Vit_A !== ''">
               <div class="media-content">
                 <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน A1</strong></p>
                 <p class="bd-notification is-primary has-text-left"><strong class="name">เบตาคาโรทีน</strong></p>
