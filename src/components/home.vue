@@ -150,6 +150,7 @@
 
 <script>
 import axios from 'axios'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'HelloWorld',
   data () {
@@ -164,6 +165,9 @@ export default {
     this.getAllMembers()
   },
   methods: {
+    ...mapActions([
+      'setbombFirebase'
+    ]),
     showSeemore (food) {
       if (this.tmp === food.Food_ID) {
         this.tmp = ''
@@ -193,6 +197,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'cart'
+    ]),
     sumCal () {
       var sum = 0
       for (var i = 0; i < this.Cart.length; i++) {
