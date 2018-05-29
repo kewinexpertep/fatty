@@ -227,10 +227,7 @@ a {
   height: 80px;
 }
 .hero.head {
-<<<<<<< HEAD
-=======
 
->>>>>>> 1c3c4bbb09d6af4825946d66a720c8b37ab05480
   background-image: url('../assets/24840.jpg');
   background-size: cover;
 
