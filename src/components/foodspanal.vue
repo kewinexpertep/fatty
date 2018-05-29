@@ -35,9 +35,9 @@
                     {{food.foodname}}
                   </p>
                 </span>
+                <a class="is-info" @click="showSeemore(food)">See more</a>
               </div>
-              <button class="button is-info" @click="showSeemore(food)">See more</button>
-              <button class="button is-danger" @click="AddCart(food)">Eat now</button>
+              <button class="button is-danger" @click="AddCart(food)">Eat</button>
             </div>
           </div>
           <div class="column is-3 is-offset-1">
@@ -181,5 +181,8 @@ a {
 }
 .name {
   margin-right: 30px;
+}
+.image {
+  margin: 20px;
 }
 </style>

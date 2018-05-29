@@ -49,7 +49,7 @@
     <div class="column">
       <foodspanal :foods="cart"></foodspanal>
     </div>
-    <div><h1 class="title">Total <strong>{{sumCal}}</strong>  Kcal</h1></div>
+    <div><h1 class="title is-1">Total <strong>{{sumCal}}</strong>  Kcal</h1></div>
     <div class="columns">
       <div class="column">
         <div class="hero is-primary is-bold column is-12 is-offset-1">
