@@ -8,6 +8,7 @@
         <router-link tag="li" to="/profile">
           <a>profile</a>
         </router-link>
+        <button class="button is-danger" @click="showAddProfile()">test</button>
         <div class="columns is-centered">
           <div class="column is-desktop-7 is-mobile-10 is-narrow">
             <b-field lable="search">
@@ -25,6 +26,60 @@
         <foodspanal :foods="foods"></foodspanal>
       </div>
     </div>
+<b-modal :active.sync="isModalActive">
+      <div class="card card-content">
+        <div class="title columns is-centered">
+         กรอกข้อมูลส่วนตัว
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column is-7">
+            <b-field label="ชื่อ">
+          <b-input type="number" placeholder="ชื่อ" v-model="subid"></b-input>
+        </b-field>
+          </div>
+          <div class="column">
+          <b-field label="อายุ">
+          <b-input type="number" placeholder="อายุ" v-model="subid"></b-input>
+        </b-field>
+        </div>
+        </div>
+
+      <div class="columns">
+        <div class="column">
+            <b-field label="เพศ">
+          <div class="block">
+            <b-radio v-model="radio"
+                native-value="male">
+                ชาย
+            </b-radio>
+            <b-radio v-model="radio"
+                native-value="female">
+                หญิง
+            </b-radio>
+        </div>
+        </b-field>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+          <b-field label="น้ำหนัก">
+          <b-input type="number" placeholder="น้ำหนัก" v-model="subid"></b-input>
+        </b-field>
+        </div>
+        <div class="column">
+          <b-field label="ส่วนสูง">
+          <b-input type="number" placeholder="ส่วนสูง" v-model="subid"></b-input>
+        </b-field>
+        </div>
+      </div>
+
+        <div class="columns is-centered">
+          <button class="button is-success " @click="addSub(subid, subname, unit, grade)">ตกลง</button>
+        </div>
+      </div>
+    </b-modal>
 
   </div>
 </template>
@@ -38,10 +93,16 @@ export default {
   components: { foodspanal },
   data () {
     return {
+      isModalActive: false,
       foods: [],
       keyword: '',
       Cart: [],
-      tmp: ''
+      tmp: '',
+      name: '',
+      sex: '',
+      age: '',
+      weight: '',
+      height: ''
     }
   },
   mounted () {
@@ -69,6 +130,9 @@ export default {
       axios.get('//fatty-db.herokuapp.com/index.php').then(function (response) {
         self.foods = response.data.foods
       })
+    },
+    showAddProfile () {
+      this.isModalActive = true
     }
   },
   computed: {
