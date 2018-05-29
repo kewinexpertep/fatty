@@ -154,7 +154,7 @@ export default {
       const bmiSum = weight / ((height / 100) * (height / 100))
       return parseFloat(bmiSum).toFixed(2)
     },
-    bmr () {
+  bmr () {
       const weight = this.profile.weight
       const height = this.profile.height
       const age = this.profile.age
