@@ -83,6 +83,9 @@ export default {
       return sum
     }
   }
+  // created () {
+  //   document.body.style.background = "#0001 url('/static/24840.jpg')no-repeat right top"
+  // }
 }
 </script>
 
@@ -105,6 +108,20 @@ a {
 .name {
   margin-right: 30px;
 }
+.bg {
+
+   background: url(/static/24840.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.fatty{
+  font-family: 'Poiret One', cursive;
+  color: aliceblue;
+  font-size: 100px;
+}
+
 .logo {
   height: 80px;
 }
