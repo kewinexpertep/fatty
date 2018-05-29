@@ -43,6 +43,7 @@
           <p class="title is-5">sex:  {{profile.sex}}</p>
           <p class="title is-5">weight:  {{profile.weight}} kg</p>
           <p class="title is-5">height:  {{profile.height}} cm</p>
+          <p class="title is-5">bmi:  {{bmi}}</p>
         </div>
       </div>
    </nav>
@@ -118,6 +119,12 @@ export default {
         sum += parseInt(this.cart[i].Energy) * parseInt(this.amount[index].qty)
       }
       return sum
+    },
+    bmi () {
+      const weight = this.profile.weight
+      const height = this.profile.height
+      const weightSum = weight / ((height / 100) * (height / 100))
+      return parseFloat(weightSum).toFixed(2)
     }
   }
 }
