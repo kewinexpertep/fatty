@@ -1,13 +1,31 @@
 <template>
   <div class="hello">
     <section class="hero head is-medium is-bold">
+        <router-link tag="li" to="/profile">
+          <nav class="navbar is-transparent">
+            <div id="navbarExampleTransparentExample" class="navbar-menu">
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="field is-grouped">
+                    <p class="control">
+                      <a class="button is-danger">
+                        <span class="fas fa-home">
+                          <i class="fas fa-info-circle"></i>
+                        </span>
+                        <span> -PROFILE</span>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </router-link>
       <div class="hero-body">
         <router-link tag="li" to="/">
           <a><img src="../assets/logo.png" class="logo"></a>
         </router-link>
-        <router-link tag="li" to="/profile">
-          <a>profile</a>
-        </router-link>
+        <button class="button is-danger" @click="showAddProfile()">test</button>
         <div class="columns is-centered">
           <div class="column is-desktop-7 is-mobile-10 is-narrow">
             <b-field lable="search">
@@ -25,6 +43,74 @@
         <foodspanal :foods="foods"></foodspanal>
       </div>
     </div>
+<b-modal :active.sync="isModalActive">
+      <div class="card card-content">
+        <div class="title columns is-centered">
+         กรอกข้อมูลส่วนตัว
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column is-7">
+            <b-field label="ชื่อ">
+          <b-input type="text" placeholder="ชื่อ" v-model="name"></b-input>
+        </b-field>
+          </div>
+          <div class="column">
+          <b-field label="อายุ">
+          <b-input type="number" placeholder="อายุ" v-model="age"></b-input>
+        </b-field>
+        </div>
+        </div>
+
+      <div class="columns">
+        <div class="column">
+            <b-field label="เพศ">
+          <div class="block">
+            <b-radio v-model="sex"
+                native-value="male">
+                ชาย
+            </b-radio>
+            <b-radio v-model="sex"
+                native-value="female">
+                หญิง
+            </b-radio>
+        </div>
+        </b-field>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+          <b-field label="น้ำหนัก">
+          <b-input type="number" placeholder="น้ำหนัก" v-model="weight"></b-input>
+        </b-field>
+        </div>
+        <div class="column">
+          <b-field label="ส่วนสูง">
+          <b-input type="number" placeholder="ส่วนสูง" v-model="height"></b-input>
+        </b-field>
+        </div>
+      </div>
+
+    <div class="columns is-centered">
+      <b-field label="ระดับการออกกำลังกายของคุณ">
+            <b-select v-model="activity" placeholder="Select a character" required>
+                <option value="1">น้อย หรือไม่ค่อยออกกำลังกาย</option>
+                <option value="2">ปานกลาง ออกกำลังกาย 1-3 ครั้งต่อสัปดาห์</option>
+                <option value="3">ค่อนข้างหนัก ออกกำลังกาย 4-5 ครั้งต่อสัปดาห์</option>
+                <option value="4">หนัก ออกกำลังกาย 6-7 ครั้งต่อสัปดาห์</option>
+                <option value="5">หนักมาก ออกกำลังกายวันละ 2 ครั้งขึ้นไป</option>
+            </b-select>
+        </b-field>
+    </div>
+
+        <div class="columns is-centered">
+          <div class="column">
+            <button class="button is-success " @click="addProfile(name, sex, age, weight, height, activity)">ตกลง</button>
+          </div>
+        </div>
+      </div>
+    </b-modal>
 
   </div>
 </template>
@@ -38,10 +124,17 @@ export default {
   components: { foodspanal },
   data () {
     return {
+      isModalActive: false,
       foods: [],
       keyword: '',
       Cart: [],
-      tmp: ''
+      tmp: '',
+      name: '',
+      sex: '',
+      age: '',
+      weight: '',
+      height: '',
+      activity: ''
     }
   },
   mounted () {
@@ -49,7 +142,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'storeCart'
+      'storeCart',
+      'saveprofile'
     ]),
     showSeemore (food) {
       if (this.tmp === food.Food_ID) {
@@ -69,6 +163,13 @@ export default {
       axios.get('//fatty-db.herokuapp.com/index.php').then(function (response) {
         self.foods = response.data.foods
       })
+    },
+    showAddProfile () {
+      this.isModalActive = true
+    },
+    addProfile (name, sex, age, weight, height, activity) {
+      this.saveprofile({name, sex, age, weight, height, activity})
+      this.isModalActive = false
     }
   },
   computed: {
