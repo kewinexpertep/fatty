@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import home from '@/components/home'
 import profile from '@/components/profile'
 import stat from '@/components/stat'
+import Eat from '@/components/Eat'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/stat',
       name: 'stat',
       component: stat
+    },
+    {
+      path: '/Eat',
+      name: 'Eat',
+      component: Eat
     }
   ]
 })
