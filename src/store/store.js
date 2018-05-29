@@ -27,17 +27,18 @@ export const store = new Vuex.Store({
     cart: [],
     amount: [],
     profile: {
-      name: '',
-      sex: '',
-      age: '',
-      weight: '',
-      height: '',
-      activity: ''
+      name: 'am',
+      sex: 'female',
+      age: '21',
+      weight: '43',
+      height: '155',
+      activity: '1'
     }
   },
   getters: {
     cart: state => state.cart,
-    amount: state => state.amount
+    amount: state => state.amount,
+    profile: state => state.profile
   },
   mutations: {
     setCart (state, obj) {

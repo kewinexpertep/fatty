@@ -8,7 +8,7 @@
                 <div class="navbar-item">
                   <div class="field is-grouped">
                     <p class="control">
-                      <a class="button is-danger">
+                      <a class="button is-info">
                         <span class="fas fa-home">
                           <i class="fas fa-info-circle"></i>
                         </span>
