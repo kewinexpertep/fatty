@@ -3,10 +3,9 @@
     <div class="column is-8 is-offset-2">
     <section class="hero is-medium is-primary is-bold">
       <div class="hero-body">
-        <h1 class="title">
-          Fatty
-          {{sumCal}}
-        </h1>
+        <router-link tag="li" to="/">
+          <a><img src="../assets/logo.png" class="logo"></a>
+        </router-link>
         <router-link tag="li" to="/profile">
           <a>profile</a>
         </router-link>
@@ -100,5 +99,8 @@ a {
 }
 .name {
   margin-right: 30px;
+}
+.logo {
+  height: 80px;
 }
 </style>

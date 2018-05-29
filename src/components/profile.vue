@@ -6,9 +6,9 @@
     <div class="column is-8 is-offset-2">
     <nav class="level is-mobile">
       <div class="level-item has-text-centered">
-        <h1 class="title">
-          Fatty
-        </h1>
+        <router-link tag="li" to="/">
+          <a><img src="../assets/logo.png" class="logo"></a>
+        </router-link>
       </div>
       <div class="level-item has-text-centered">
         <b-field lable="search">
@@ -32,7 +32,7 @@
       <div class="level-item has-text-centered">
         <div class="has-text-left">
           <p class="title is-5">you need</p>
-          <p class="title is-5">Power <strong class="name">1700 Kcal</strong></p>
+          <p class="title is-5">Power <strong class="name">{{sumCal}} Kcal</strong></p>
           <p class="title is-6">See more</p>
         </div>
       </div>
@@ -47,7 +47,6 @@
    </nav>
     <!-- <div class="column" v-for="food in foods" :key="food.Food_ID"> -->
     <div class="column">
-      {{cart}}
       <foodspanal :foods="cart"></foodspanal>
     </div>
     <div class="column"></div>
@@ -100,7 +99,14 @@ export default {
   computed: {
     ...mapGetters([
       'cart'
-    ])
+    ]),
+    sumCal () {
+      var sum = 0
+      for (var i = 0; i < this.cart.length; i++) {
+        sum += parseInt(this.cart[i].Energy)
+      }
+      return sum
+    }
   }
 }
 </script>
@@ -120,5 +126,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.logo {
+  height: 50px;
 }
 </style>
