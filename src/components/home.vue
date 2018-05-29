@@ -26,7 +26,6 @@
         <router-link tag="li" to="/">
           <a><img src="../assets/logo.png" class="logo"></a>
         </router-link>
-        
         <div class="columns is-centered">
           <div class="column is-desktop-7 is-mobile-10 is-narrow">
             <b-field lable="search">
