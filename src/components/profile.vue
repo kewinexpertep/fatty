@@ -44,6 +44,9 @@
           <p class="title is-5">weight:  {{profile.weight}} kg</p>
           <p class="title is-5">height:  {{profile.height}} cm</p>
           <p class="title is-5">bmi:  {{bmi}}</p>
+          <p class="title is-5">bmr:  {{bmr}}</p>
+          <p class="title is-5">tdee:  {{tdee}}</p>
+
         </div>
       </div>
    </nav>
@@ -123,8 +126,38 @@ export default {
     bmi () {
       const weight = this.profile.weight
       const height = this.profile.height
-      const weightSum = weight / ((height / 100) * (height / 100))
-      return parseFloat(weightSum).toFixed(2)
+      const bmiSum = weight / ((height / 100) * (height / 100))
+      return parseFloat(bmiSum).toFixed(2)
+    },
+    bmr () {
+      const weight = this.profile.weight
+      const height = this.profile.height
+      const age = this.profile.age
+      if (this.profile.sex === 'female') {
+        const bmrFemaleSum = 665 + (9.6 * weight) + (1.8 * height) - (4.7 * age)
+        return parseFloat(bmrFemaleSum).toFixed(2)
+      } else {
+        const bmrMaleSum = 66 + (13.7 * weight) + (5 * height) - (6.8 * age)
+        return parseFloat(bmrMaleSum).toFixed(2)
+      }
+    },
+    tdee () {
+      if (this.profile.activity === '1') {
+        const tdee = (1.2 * this.bmr)
+        return parseFloat(tdee).toFixed(2)
+      } else if (this.profile.activity === '2') {
+        const tdee = (1.375 * this.bmr)
+        return parseFloat(tdee).toFixed(2)
+      } else if (this.profile.activity === '3') {
+        const tdee = (1.55 * this.bmr)
+        return parseFloat(tdee).toFixed(2)
+      } else if (this.profile.activity === '4') {
+        const tdee = (1.7 * this.bmr)
+        return parseFloat(tdee).toFixed(2)
+      } else {
+        const tdee = (1.9 * this.bmr)
+        return parseFloat(tdee).toFixed(2)
+      }
     }
   }
 }
