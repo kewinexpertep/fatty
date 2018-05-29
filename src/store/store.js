@@ -30,12 +30,19 @@ export const store = new Vuex.Store({
     cart: state => state.cart
   },
   mutations: {
+    setCart (state, obj) {
+      state.cart = obj
+    },
     ...firebaseMutations
   },
   actions: {
-    test (context) {
+    test (context, objs) {
       shipsetRef.set(null)
       router.push('/')
+    },
+    storeCart (context, objs) {
+      console.log(objs)
+      context.commit('setCart', objs)
     }
   }
 })

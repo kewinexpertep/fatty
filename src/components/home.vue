@@ -6,6 +6,7 @@
         <h1 class="title">
           Fatty
           {{sumCal}}
+          {{cart}}
         </h1>
         <div class="column is-4 is-offset-4">
           <b-field lable="search">
@@ -17,133 +18,7 @@
         </div>
       </div>
     </section>
-    <div class="column" v-for="food in foods" :key="food.Food_ID">
-      <div class="card">
-        <header class="card-header">
-          <div class="column is-3">
-            <figure class="media-left">
-                <figure class="image is-64x64">
-                  <img v-if="food.foodtype=='Main dish'" src="../assets/foods/f4.png">
-                  <img v-else-if="food.foodtype=='Fruit'" src="../assets/foods/f6.png">
-                  <img v-else-if="food.foodtype=='Fast food'" src="../assets/foods/f13.png">
-                  <img v-else-if="food.foodtype=='Sweetmeat'" src="../assets/foods/f11.png">
-                  <img v-else-if="food.foodtype=='Bakery'" src="../assets/foods/f16.png">
-                  <img v-else-if="food.foodtype=='Protien'" src="../assets/foods/f14.png">
-                  <img v-else-if="food.foodtype=='Sweeetmeat'" src="../assets/foods/f11.png">
-                  <img v-else-if="food.foodtype=='Fat'" src="../assets/foods/f2.png">
-                  <img v-else-if="food.foodtype=='Other'" src="../assets/foods/f15.png">
-                  <img v-else-if="food.foodtype=='Spices and condiments'" src="../assets/foods/f3.png">
-                  <img v-else-if="food.foodtype=='Milk'" src="../assets/foods/f7.png">
-                  <img v-else-if="food.foodtype=='Egg'" src="../assets/foods/f10.png">
-                  <img v-else-if="food.foodtype=='Fish sea food'" src="../assets/foods/f20.png">
-                  <img v-else-if="food.foodtype=='Meat'" src="../assets/foods/f14.png">
-                  <img v-else-if="food.foodtype=='Vegetables'" src="../assets/foods/f12.png">
-                  <img v-else-if="food.foodtype=='Starchy roots tubes'" src="../assets/foods/f17.png">
-                  <img v-else-if="food.foodtype=='Cereals'" src="../assets/foods/f12.png">
-
-                </figure>
-            </figure>
-          </div>
-          <div class="column is-4 is-offset-1">
-            <div class="media-content">
-              <div class="field">
-                <span class="control">
-                   <p class="title is-3">
-                    {{food.foodname}}
-                  </p>
-                </span>
-              </div>
-              <button class="button is-info" @click="showSeemore(food)">See more</button>
-              <button class="button is-danger" @click="AddCart(food)">Eat now</button>
-            </div>
-          </div>
-          <div class="column is-3 is-offset-1">
-            <div class="media-content">
-              <div class="field">
-                <span class="control">
-                   <p class="title is-3">{{food.Energy}}</p>
-                   <p class="title is-5">Kcal</p>
-                </span>
-              </div>
-            </div>
-          </div>
-        </header>
-        <footer class="card-footer" v-if="food.Food_ID === tmp">
-          <div class="card-footer-item">
-            <div class="card-footer-item" v-if="food.Fat !== ''">
-              <div class="media-content">
-                <p class="bd-notification is-primary has-text-left"><strong class="name">น้ำ</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">โปรตีน</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">ไขมัน</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">คาร์โบไฮเดรต</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">ใยอาหาร</strong></p>
-              </div>
-              <div class="media-content">
-                <p class="bd-notification is-primary has-text-left">{{food.Water}} g.</p>
-                <p class="bd-notification is-primary has-text-left">{{food.Protien}} g.</p>
-                <p class="bd-notification is-primary has-text-left">{{food.Fat}} g.</p>
-                <p class="bd-notification is-primary has-text-left">{{food.Carbohydrate}} g.</p>
-                <p class="bd-notification is-primary has-text-left">{{food.Dietary_Fiber}} g.</p>
-              </div>
-            </div>
-            <div class="card-footer-item" v-if="food.Iron !== ''">
-              <div class="media-content">
-                <p class="bd-notification is-primary has-text-left"><strong class="name">แคลเซียม</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">ฟอสฟอรัส</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">ธาตุเหล็ก</strong></p>
-              </div>
-              <div class="media-content">
-                <p class="bd-notification is-primary has-text-left">{{food.Calcium}}</p>
-                <p class="bd-notification is-primary has-text-left">{{food.Phosphorus}}</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Iron !== ''">{{food.Iron}}g.</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Iron == ''">0 g.</p>
-              </div>
-            </div>
-            <div class="card-footer-item" v-if="food.Total_Vit_A !== ''">
-              <div class="media-content">
-                <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน A1</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">เบตาคาโรทีน</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน B1</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน B2</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน E</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน B3</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">วิตามิน C</strong></p>
-              </div>
-              <div class="media-content">
-                <p class="bd-notification is-primary has-text-left" v-if="food.Total_Vit_A == ''">-</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Total_Vit_A !== ''">{{food.Total_Vit_A}}%</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Betacarotene == ''">-</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Betacarotene !== ''">{{food.Betacarotene}}%</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Thiamin == ''">-</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Thiamin !== ''">{{food.Thiamin}}%</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Riboflavin == ''">-</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Riboflavin !== ''">{{food.Riboflavin}}%</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Vitamin_E == ''">-E</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Vitamin_E !== ''">{{food.Vitamin_E}}%</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Niacin == ''">-</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Niacin !== ''">{{food.Niacin}}%</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Vitamin_C == ''">-</p>
-                <p class="bd-notification is-primary has-text-left" v-if="food.Vitamin_C !== ''">{{food.Vitamin_C}}%</p>
-              </div>
-            </div>
-            <div class="card-footer-item">
-              <div class="media-content">
-                <p class="bd-notification is-primary has-text-left"><strong class="name">เดิน</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">วิ่ง</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">ว่ายน้ำ</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">ปั่นจักรยาน</strong></p>
-              </div>
-              <div class="media-content">
-                <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/2.78)}}</p>
-                <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/6.29)}}</p>
-                <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/8.94)}}</p>
-                <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/4.72)}}</p>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
-    </div>
+    <foodspanal :foods="foods"></foodspanal>
     </div>
   </div>
 </template>
@@ -151,8 +26,10 @@
 <script>
 import axios from 'axios'
 import { mapGetters, mapActions } from 'vuex'
+import foodspanal from './foodspanal'
 export default {
   name: 'HelloWorld',
+  components: { foodspanal },
   data () {
     return {
       foods: [],
@@ -166,7 +43,7 @@ export default {
   },
   methods: {
     ...mapActions([
-      'setbombFirebase'
+      'storeCart'
     ]),
     showSeemore (food) {
       if (this.tmp === food.Food_ID) {
@@ -188,12 +65,6 @@ export default {
         console.log(response.data.foods)
         self.foods = response.data.foods
       })
-    },
-    imgFood (str) {
-      return '../assets/foods/f1.png'
-    },
-    AddCart (food) {
-      this.Cart.push(food)
     }
   },
   computed: {
@@ -202,8 +73,8 @@ export default {
     ]),
     sumCal () {
       var sum = 0
-      for (var i = 0; i < this.Cart.length; i++) {
-        sum += parseInt(this.Cart[i].Energy)
+      for (var i = 0; i < this.cart.length; i++) {
+        sum += parseInt(this.cart[i].Energy)
       }
       return sum
     }
