@@ -37,6 +37,7 @@
                 <a class="is-info" @click="showSeemore(food)">See more</a>
               </div>
               <button class="button is-danger" @click="AddCart(food)">Eat</button>
+              <button class="button is-danger" @click="ClearFood(food)">Clear</button>
             </div>
           </div>
           <div class="column is-3 is-offset-1">
@@ -173,6 +174,20 @@ export default {
           qty: 1
         }
         this.amount.push(tmp)
+      }
+      var tmp1 = {
+        cart: this.Cart,
+        amount: this.amount
+      }
+      this.storeCart(tmp1)
+    },
+    ClearFood (food) {
+      console.log(food.Food_ID)
+      console.log(this.Cart)
+      var index = this.find(food, this.Cart)
+      if (index > -1) {
+        this.Cart.splice(index, 1)
+        this.amount.splice(index, 1)
       }
       var tmp1 = {
         cart: this.Cart,
