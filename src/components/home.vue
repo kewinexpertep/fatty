@@ -1,12 +1,29 @@
 <template>
   <div class="hello">
     <section class="hero head is-medium is-bold">
+        <router-link tag="li" to="/profile">
+          <nav class="navbar is-transparent">
+            <div id="navbarExampleTransparentExample" class="navbar-menu">
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="field is-grouped">
+                    <p class="control">
+                      <a class="button is-danger">
+                        <span class="fas fa-home">
+                          <i class="fas fa-info-circle"></i>
+                        </span>
+                        <span> -PROFILE</span>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </router-link>
       <div class="hero-body">
         <router-link tag="li" to="/">
           <a><img src="../assets/logo.png" class="logo"></a>
-        </router-link>
-        <router-link tag="li" to="/profile">
-          <a>profile</a>
         </router-link>
         <button class="button is-danger" @click="showAddProfile()">test</button>
         <div class="columns is-centered">
