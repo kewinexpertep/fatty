@@ -37,6 +37,7 @@
                 <a class="is-info" @click="showSeemore(food)">See more</a>
               </div>
               <button class="button is-danger" @click="AddCart(food)">Eat</button>
+              <button class="button is-danger" @click="ClearFood(food)">Clear</button>
             </div>
           </div>
           <div class="column is-3 is-offset-1">
@@ -111,22 +112,17 @@
             </div>
             <div class="card-footer-item">
               <div class="media-content">
-                <p class="bd-notification is-primary has-text-left"><strong class="name">เดิน</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">วิ่ง</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">ว่ายน้ำ</strong></p>
-                <p class="bd-notification is-primary has-text-left"><strong class="name">ปั่นจักรยาน</strong></p>
+                <p class="bd-notification is-primary has-text-left detail"><strong class="name">เดินอย่างน้อย : {{Math.floor(food.Energy/2.78)}} นาที</strong></p>
+                <p class="bd-notification is-primary has-text-left detail"><strong class="name">วิ่งอย่างน้อย : {{Math.floor(food.Energy/6.29)}} นาที</strong></p>
+                <p class="bd-notification is-primary has-text-left detail"><strong class="name">ว่ายน้ำอย่างน้อย : {{Math.floor(food.Energy/8.94)}} นาที</strong></p>
+                <p class="bd-notification is-primary has-text-left detail"><strong class="name">ปั่นจักรยานอย่างน้อย : {{Math.floor(food.Energy/4.72)}} นาที</strong></p>
               </div>
               <div class="media-content">
-                <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/2.78)}}</p>
-                <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/6.29)}}</p>
-                <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/8.94)}}</p>
-                <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/4.72)}}</p>
-              </div>
-              <div class="media-content">
-                <p class="bd-notification is-primary has-text-right">นาที</p>
-                <p class="bd-notification is-primary has-text-right">นาที</p>
-                <p class="bd-notification is-primary has-text-right">นาที</p>
-                <p class="bd-notification is-primary has-text-right">นาที</p>
+                <progress class="progress is-success" :value="Math.floor(food.Energy/2.78)" max="100"></progress>
+                <progress class="progress is-warning" :value="Math.floor(food.Energy/6.29)" max="100"></progress>
+                <progress class="progress is-info" :value="Math.floor(food.Energy/8.94)" max="100"></progress>
+                <progress class="progress is-danger" :value="Math.floor(food.Energy/4.72)" max="100"></progress>
+
               </div>
             </div>
           </div>
@@ -186,6 +182,20 @@ export default {
       }
       this.storeCart(tmp1)
     },
+    ClearFood (food) {
+      console.log(food.Food_ID)
+      console.log(this.Cart)
+      var index = this.find(food, this.Cart)
+      if (index > -1) {
+        this.Cart.splice(index, 1)
+        this.amount.splice(index, 1)
+      }
+      var tmp1 = {
+        cart: this.Cart,
+        amount: this.amount
+      }
+      this.storeCart(tmp1)
+    },
     showQty (food) {
       var index = this.find(food, this.amount)
       if (index > -1) {
@@ -224,4 +234,5 @@ a {
 .image {
   margin: 20px;
 }
+.detail {margin-bottom: 10px}
 </style>
