@@ -38,10 +38,12 @@
       </div>
        <div class="level-item has-text-left">
         <div class="hero is-medium is-primary is-bold column is-7 is-offset-2">
-          <p class="title is-5">sex: female</p>
-          <p class="title is-5">age: 13 years</p>
-          <p class="title is-5">weight: 55 kg</p>
-          <p class="title is-5">height: 166 cm</p>
+          <p class="title is-5">name:  {{profile.name}}</p>
+          <p class="title is-5">age:  {{profile.age}} years</p>
+          <p class="title is-5">sex:  {{profile.sex}}</p>
+          <p class="title is-5">weight:  {{profile.weight}} kg</p>
+          <p class="title is-5">height:  {{profile.height}} cm</p>
+          <p class="title is-5">bmi:  {{bmi}}</p>
         </div>
       </div>
    </nav>
@@ -107,7 +109,8 @@ export default {
   computed: {
     ...mapGetters([
       'cart',
-      'amount'
+      'amount',
+      'profile'
     ]),
     sumCal () {
       var sum = 0
@@ -116,6 +119,12 @@ export default {
         sum += parseInt(this.cart[i].Energy) * parseInt(this.amount[index].qty)
       }
       return sum
+    },
+    bmi () {
+      const weight = this.profile.weight
+      const height = this.profile.height
+      const weightSum = weight / ((height / 100) * (height / 100))
+      return parseFloat(weightSum).toFixed(2)
     }
   }
 }

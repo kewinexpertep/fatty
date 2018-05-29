@@ -27,24 +27,26 @@ export const store = new Vuex.Store({
     cart: [],
     amount: [],
     profile: {
-      name: '',
-      sex: '',
-      age: '',
-      weight: '',
-      height: ''
+      name: 'am',
+      sex: 'female',
+      age: '21',
+      weight: '43',
+      height: '155',
+      activity: '1'
     }
   },
   getters: {
     cart: state => state.cart,
-    amount: state => state.amount
+    amount: state => state.amount,
+    profile: state => state.profile
   },
   mutations: {
     setCart (state, obj) {
       state.cart = obj.cart
       state.amount = obj.amount
     },
-    setprofile (state, {name, sex, age, weight, height}) {
-      state.profile = {name, sex, age, weight, height}
+    setprofile (state, {name, sex, age, weight, height, activity}) {
+      state.profile = {name, sex, age, weight, height, activity}
     },
     ...firebaseMutations
   },
@@ -56,8 +58,8 @@ export const store = new Vuex.Store({
     storeCart (context, objs) {
       context.commit('setCart', objs)
     },
-    saveprofile ({commit}, {name, sex, age, weight, height}) {
-      commit('setprofile', {name, sex, age, weight, height})
+    saveprofile ({commit}, {name, sex, age, weight, height, activity}) {
+      commit('setprofile', {name, sex, age, weight, height, activity})
     }
   }
 })

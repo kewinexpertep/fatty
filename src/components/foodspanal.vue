@@ -46,7 +46,7 @@
                 <span class="control">
                    <p class="title is-3">{{food.Energy}}</p>
                    <p class="title is-5">Kcal</p>
-                   <p class="title is-7">{{showQty(food)}}</p>
+                   <p class="title is-6">{{showQty(food)}}</p>
                 </span>
               </div>
             </div>
@@ -122,6 +122,12 @@
                 <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/6.29)}}</p>
                 <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/8.94)}}</p>
                 <p class="bd-notification is-primary has-text-left">{{Math.floor(food.Energy/4.72)}}</p>
+              </div>
+              <div class="media-content">
+                <p class="bd-notification is-primary has-text-right">นาที</p>
+                <p class="bd-notification is-primary has-text-right">นาที</p>
+                <p class="bd-notification is-primary has-text-right">นาที</p>
+                <p class="bd-notification is-primary has-text-right">นาที</p>
               </div>
             </div>
           </div>
@@ -200,7 +206,7 @@ export default {
       if (index > -1) {
         return 'X' + this.amount[index].qty
       }
-      return ''
+      return 'X0'
     }
   },
   computed: {
