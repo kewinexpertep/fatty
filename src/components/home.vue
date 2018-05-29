@@ -77,19 +77,19 @@
 
     <div class="columns is-centered">
       <b-field label="ระดับการออกกำลังกายของคุณ">
-            <b-select placeholder="Select a character" required>
-                <option value="flint">น้อย หรือไม่ค่อยออกกำลังกาย</option>
-                <option value="silver">ปานกลาง ออกกำลังกาย 1-3 ครั้งต่อสัปดาห์</option>
-                <option value="flint">ค่อนข้างหนัก ออกกำลังกาย 4-5 ครั้งต่อสัปดาห์</option>
-                <option value="silver">หนัก ออกกำลังกาย 6-7 ครั้งต่อสัปดาห์</option>
-                <option value="silver">หนักมาก ออกกำลังกายวันละ 2 ครั้งขึ้นไป</option>
+            <b-select v-model="activity" placeholder="Select a character" required>
+                <option value="1">น้อย หรือไม่ค่อยออกกำลังกาย</option>
+                <option value="2">ปานกลาง ออกกำลังกาย 1-3 ครั้งต่อสัปดาห์</option>
+                <option value="3">ค่อนข้างหนัก ออกกำลังกาย 4-5 ครั้งต่อสัปดาห์</option>
+                <option value="4">หนัก ออกกำลังกาย 6-7 ครั้งต่อสัปดาห์</option>
+                <option value="5">หนักมาก ออกกำลังกายวันละ 2 ครั้งขึ้นไป</option>
             </b-select>
         </b-field>
     </div>
 
         <div class="columns is-centered">
           <div class="column">
-            <button class="button is-success " @click="addProfile(name, sex, age, weight, height)">คำนวณ</button>
+            <button class="button is-success " @click="addProfile(name, sex, age, weight, height, activity)">ตกลง</button>
           </div>
         </div>
       </div>
@@ -116,7 +116,8 @@ export default {
       sex: '',
       age: '',
       weight: '',
-      height: ''
+      height: '',
+      activity: ''
     }
   },
   mounted () {
@@ -124,7 +125,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'storeCart'
+      'storeCart',
+      'saveprofile'
     ]),
     showSeemore (food) {
       if (this.tmp === food.Food_ID) {
@@ -147,6 +149,10 @@ export default {
     },
     showAddProfile () {
       this.isModalActive = true
+    },
+    addProfile (name, sex, age, weight, height, activity) {
+      this.saveprofile({name, sex, age, weight, height, activity})
+      this.isModalActive = false
     }
   },
   computed: {
