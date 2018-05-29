@@ -42,49 +42,6 @@
               <p class="title is-5">tdee:  {{tdee}}</p>
         </a>
       </div>
-<<<<<<< HEAD
-        <footer class="card-footer">
-          <p class="card-footer-item">
-            <span>
-              แคลลอรี่ที่เหลือต่อวัน ............
-              <p>1</p>
-              <p>2</p>
-              <p>3</p>
-            </span>
-          </p>
-          <p class="card-footer-item">
-            <span>
-              อะไรดี
-              <p>1</p>
-              <p>2</p>
-              <p>3</p>
-            </span>
-          </p>
-        </footer>
-</div>
-    <!-- <div class="column" v-for="food in foods" :key="food.Food_ID"> -->
-    <div class="card">
-      <div class="card-content">
-        <p class="title">
-        </p>
-        <a class="subtitle">
-=======
-       <div class="level-item has-text-left">
-        <div class="hero is-medium is-primary is-bold column is-7 is-offset-2">
-          <p class="title is-5">name: {{profile.name}}</p>
-          <p class="title is-5">age:  {{profile.age}} years</p>
-          <p class="title is-5">sex:  {{profile.sex}}</p>
-          <p class="title is-5">weight: {{profile.weight}} kg</p>
-          <p class="title is-5">height:  {{profile.height}} cm</p>
-          <p class="title is-5">bmi:  {{bmi}}</p>
-          <p class="title is-5">bmr:  {{bmr}}</p>
-          <p class="title is-5">tdee: {{tdee}}</p>
->>>>>>> 1c3c4bbb09d6af4825946d66a720c8b37ab05480
-
-        </a>
-      </div>
-      </div>
-
     <div class="column">
       <foodspanal :foods="cart"></foodspanal>
     </div>
@@ -120,7 +77,9 @@
     </div>
     </div>
     </div>
+    </div>
   </div>
+
 </template>
 <script>
 // import axios from 'axios'
@@ -167,7 +126,7 @@ export default {
       const bmiSum = weight / ((height / 100) * (height / 100))
       return parseFloat(bmiSum).toFixed(2)
     },
-  bmr () {
+    bmr () {
       const weight = this.profile.weight
       const height = this.profile.height
       const age = this.profile.age
