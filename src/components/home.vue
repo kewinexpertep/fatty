@@ -14,6 +14,7 @@
                         </span>
                         <span> -PROFILE</span>
                       </a>
+                      <button class="button is-info" @click="showAddProfile()">test</button>
                     </p>
                   </div>
                 </div>
@@ -25,7 +26,7 @@
         <router-link tag="li" to="/">
           <a><img src="../assets/logo.png" class="logo"></a>
         </router-link>
-        <button class="button is-danger" @click="showAddProfile()">test</button>
+
         <div class="columns is-centered">
           <div class="column is-desktop-7 is-mobile-10 is-narrow">
             <b-field lable="search">
@@ -227,8 +228,9 @@ a {
   height: 80px;
 }
 .hero.head {
-
+  
   background-image: url('../assets/24840.jpg');
   background-size: cover;
+
 }
 </style>
