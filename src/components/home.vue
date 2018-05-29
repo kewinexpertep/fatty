@@ -1,11 +1,15 @@
 <template>
-  <div class="hello">
+  <div class="hello bg">
+
     <div class="column is-8 is-offset-2">
-    <section class="hero is-medium is-primary is-bold">
-      <div class="hero-body">
-        <h1 class="title">
+    <section>
+      <!-- <div class="hero-body"> -->
+
+        <!-- <img src = "/static/24840.jpg" width="1000"> -->
+
+        <div class="title fatty">
           Fatty
-        </h1>
+        </div>
         <div class="column is-4 is-offset-4">
           <b-field lable="search">
               <b-input v-model="keyword"
@@ -15,7 +19,7 @@
               ></b-input>
               <button class="button is-danger" @click="search()">search</button>
           </b-field>
-        </div>
+        <!-- </div> -->
       </div>
     </section>
     <div class="column" v-for="food in foods" :key="food.Food_ID">
@@ -109,7 +113,7 @@
                 <p class="bd-notification is-primary has-text-left" v-if="food.Vitamin_C !== ''">{{food.Vitamin_C}}%</p>
               </div>
             </div>
-          </div>nam,e
+          </div>
         </footer>
       </div>
     </div>
@@ -147,6 +151,9 @@ export default {
       })
     }
   }
+  // created () {
+  //   document.body.style.background = "#0001 url('/static/24840.jpg')no-repeat right top"
+  // }
 }
 </script>
 
@@ -169,4 +176,18 @@ a {
 .name {
   margin-right: 30px;
 }
+.bg {
+
+   background: url(/static/24840.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.fatty{
+  font-family: 'Poiret One', cursive;
+  color: aliceblue;
+  font-size: 100px;
+}
+
 </style>
