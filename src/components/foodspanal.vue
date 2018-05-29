@@ -124,12 +124,6 @@
                 <progress class="progress is-danger" :value="Math.floor(food.Energy/4.72)" max="100"></progress>
 
               </div>
-              <div class="media-content">
-                <p class="bd-notification is-primary has-text-right">นาที</p>
-                <p class="bd-notification is-primary has-text-right">นาที</p>
-                <p class="bd-notification is-primary has-text-right">นาที</p>
-                <p class="bd-notification is-primary has-text-right">นาที</p>
-              </div>
             </div>
           </div>
         </footer>
