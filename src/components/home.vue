@@ -12,9 +12,9 @@
                         <span class="fas fa-home">
                           <i class="fas fa-info-circle"></i>
                         </span>
-                        <span> -PROFILE</span>
+                        <span> &nbsp; PROFILE</span>
                       </a>
-                      <button class="button is-info" @click="showAddProfile()">test</button>
+                      <button class="button is-warning" @click="showAddProfile()"><i class="fas fa-user"></i></button>
                     </p>
                   </div>
                 </div>
@@ -228,7 +228,7 @@ a {
   height: 80px;
 }
 .hero.head {
-  
+
   background-image: url('../assets/24840.jpg');
   background-size: cover;
 
