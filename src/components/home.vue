@@ -6,8 +6,10 @@
         <h1 class="title">
           Fatty
           {{sumCal}}
-          {{cart}}
         </h1>
+        <router-link tag="li" to="/profile">
+          <a>profile</a>
+        </router-link>
         <div class="column is-4 is-offset-4">
           <b-field lable="search">
               <b-input v-model="keyword"
@@ -55,14 +57,12 @@ export default {
     search () {
       let self = this
       axios.get('//fatty-db.herokuapp.com?crud=search&key=' + this.keyword).then(function (response) {
-        console.log(response.data.foods)
         self.foods = response.data.foods
       })
     },
     getAllMembers: function () {
       let self = this
       axios.get('//fatty-db.herokuapp.com/index.php').then(function (response) {
-        console.log(response.data.foods)
         self.foods = response.data.foods
       })
     }
