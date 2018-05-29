@@ -93,15 +93,27 @@ export default {
     }
   },
   methods: {
+    find (obj, arr) {
+      var index = -1
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].Food_ID === obj.Food_ID) {
+          index = i
+          break
+        }
+      }
+      return index
+    }
   },
   computed: {
     ...mapGetters([
-      'cart'
+      'cart',
+      'amount'
     ]),
     sumCal () {
       var sum = 0
       for (var i = 0; i < this.cart.length; i++) {
-        sum += parseInt(this.cart[i].Energy)
+        var index = this.find(this.cart[i], this.amount)
+        sum += parseInt(this.cart[i].Energy) * parseInt(this.amount[index].qty)
       }
       return sum
     }

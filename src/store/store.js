@@ -24,14 +24,17 @@ var shipsetRef = db.ref('boards')
 Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
-    cart: []
+    cart: [],
+    amount: []
   },
   getters: {
-    cart: state => state.cart
+    cart: state => state.cart,
+    amount: state => state.amount
   },
   mutations: {
     setCart (state, obj) {
-      state.cart = obj
+      state.cart = obj.cart
+      state.amount = obj.amount
     },
     ...firebaseMutations
   },
@@ -41,7 +44,6 @@ export const store = new Vuex.Store({
       router.push('/')
     },
     storeCart (context, objs) {
-      console.log(objs)
       context.commit('setCart', objs)
     }
   }

@@ -23,7 +23,6 @@
                   <img v-else-if="food.foodtype=='Vegetables'" src="../assets/foods/f12.png">
                   <img v-else-if="food.foodtype=='Starchy roots tubes'" src="../assets/foods/f17.png">
                   <img v-else-if="food.foodtype=='Cereals'" src="../assets/foods/f12.png">
-
                 </figure>
             </figure>
           </div>
@@ -46,6 +45,7 @@
                 <span class="control">
                    <p class="title is-3">{{food.Energy}}</p>
                    <p class="title is-5">Kcal</p>
+                   <p class="title is-7">{{showQty(food)}}</p>
                 </span>
               </div>
             </div>
@@ -131,13 +131,12 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'foodspanal',
   props: ['foods'],
   data () {
     return {
-      keyword: '',
       Cart: [],
       tmp: ''
     }
@@ -153,12 +152,46 @@ export default {
         this.tmp = food.Food_ID
       }
     },
+    find (obj, arr) {
+      var index = -1
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].Food_ID === obj.Food_ID) {
+          index = i
+          break
+        }
+      }
+      return index
+    },
     AddCart (food) {
-      this.Cart.push(food)
-      this.storeCart(this.Cart)
+      var index = this.find(food, this.Cart)
+      if (index > -1) {
+        ++this.amount[index].qty
+      } else {
+        this.Cart.push(food)
+        var tmp = {
+          Food_ID: food.Food_ID,
+          qty: 1
+        }
+        this.amount.push(tmp)
+      }
+      var tmp1 = {
+        cart: this.Cart,
+        amount: this.amount
+      }
+      this.storeCart(tmp1)
+    },
+    showQty (food) {
+      var index = this.find(food, this.amount)
+      if (index > -1) {
+        return 'X' + this.amount[index].qty
+      }
+      return ''
     }
   },
   computed: {
+    ...mapGetters([
+      'amount'
+    ])
   }
 }
 </script>
