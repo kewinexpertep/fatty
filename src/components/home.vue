@@ -8,13 +8,15 @@
         <router-link tag="li" to="/profile">
           <a>profile</a>
         </router-link>
-        <div class="column is-4 is-offset-4">
-          <b-field lable="search">
-              <b-input v-model="keyword"
-              placeholder="อาหารที่ต้องการค้นหา"
-              ></b-input>
-              <button class="button is-danger" @click="search()">search</button>
-          </b-field>
+        <div class="columns is-centered">
+          <div class="column is-desktop-7 is-mobile-10 is-narrow">
+            <b-field lable="search">
+                <b-input v-model="keyword"
+                placeholder="อาหารที่ต้องการค้นหา"
+                ></b-input>
+                <button class="button is-danger" @click="search()">search</button>
+            </b-field>
+          </div>
         </div>
       </div>
     </section>
