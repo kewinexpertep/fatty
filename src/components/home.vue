@@ -12,9 +12,9 @@
                         <span class="fas fa-home">
                           <i class="fas fa-info-circle"></i>
                         </span>
-                        <span> -PROFILE</span>
+                        <span> &nbsp; PROFILE</span>
                       </a>
-                      <button class="button is-info" @click="showAddProfile()">test</button>
+                      <button class="button is-warning" @click="showAddProfile()"><i class="fas fa-user"></i></button>
                     </p>
                   </div>
                 </div>
@@ -26,7 +26,6 @@
         <router-link tag="li" to="/">
           <a><img src="../assets/logo.png" class="logo"></a>
         </router-link>
-
         <div class="columns is-centered">
           <div class="column is-desktop-7 is-mobile-10 is-narrow">
             <b-field lable="search">
@@ -228,6 +227,10 @@ a {
   height: 80px;
 }
 .hero.head {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1c3c4bbb09d6af4825946d66a720c8b37ab05480
   background-image: url('../assets/24840.jpg');
   background-size: cover;
 

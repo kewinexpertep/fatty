@@ -42,6 +42,7 @@
               <p class="title is-5">tdee:  {{tdee}}</p>
         </a>
       </div>
+<<<<<<< HEAD
         <footer class="card-footer">
           <p class="card-footer-item">
             <span>
@@ -67,6 +68,18 @@
         <p class="title">
         </p>
         <a class="subtitle">
+=======
+       <div class="level-item has-text-left">
+        <div class="hero is-medium is-primary is-bold column is-7 is-offset-2">
+          <p class="title is-5">name: {{profile.name}}</p>
+          <p class="title is-5">age:  {{profile.age}} years</p>
+          <p class="title is-5">sex:  {{profile.sex}}</p>
+          <p class="title is-5">weight: {{profile.weight}} kg</p>
+          <p class="title is-5">height:  {{profile.height}} cm</p>
+          <p class="title is-5">bmi:  {{bmi}}</p>
+          <p class="title is-5">bmr:  {{bmr}}</p>
+          <p class="title is-5">tdee: {{tdee}}</p>
+>>>>>>> 1c3c4bbb09d6af4825946d66a720c8b37ab05480
 
         </a>
       </div>
