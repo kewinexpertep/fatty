@@ -49,35 +49,33 @@
     <div class="column">
       <foodspanal :foods="cart"></foodspanal>
     </div>
-    <div class="column"></div>
-    <nav class="level is-mobile">
-      <div class="level-item has-text-centered">
+    <div><h1 class="title">Total <strong>{{sumCal}}</strong>  Kcal</h1></div>
+    <div class="columns">
+      <div class="column">
+        <div class="hero is-primary is-bold column is-12 is-offset-1">
+          <p class="title is-5">sex: {{sumCal}}</p>
+          <p class="title is-5">age: 13 years</p>
+          <p class="title is-5">weight: 55 kg</p>
+          <p class="title is-5">height: 166 cm</p>
+        </div>
       </div>
-       <div class="level-item has-text-centered">
-        <div class="hero is-medium is-primary is-bold column is-12 is-offset-1">
+      <div class="column">
+        <div class="hero is-primary is-bold column is-12 is-offset-1">
           <p class="title is-5">sex: female</p>
           <p class="title is-5">age: 13 years</p>
           <p class="title is-5">weight: 55 kg</p>
           <p class="title is-5">height: 166 cm</p>
         </div>
       </div>
-       <div class="level-item has-centered">
-        <div class="hero is-medium is-primary is-bold column is-12 is-offset-2">
+      <div class="column">
+        <div class="hero is-primary is-bold column is-12 is-offset-1">
           <p class="title is-5">sex: female</p>
           <p class="title is-5">age: 13 years</p>
           <p class="title is-5">weight: 55 kg</p>
           <p class="title is-5">height: 166 cm</p>
         </div>
       </div>
-       <div class="level-item has-centered">
-        <div class="hero is-medium is-primary is-bold column is-12 is-offset-2">
-          <p class="title is-5">sex: female</p>
-          <p class="title is-5">age: 13 years</p>
-          <p class="title is-5">weight: 55 kg</p>
-          <p class="title is-5">height: 166 cm</p>
-        </div>
-      </div>
-   </nav>
+    </div>
     </div>
   </div>
 </template>

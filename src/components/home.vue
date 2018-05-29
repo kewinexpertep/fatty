@@ -1,7 +1,6 @@
 <template>
   <div class="hello">
-    <div class="column is-8 is-offset-2">
-    <section class="hero is-medium is-primary is-bold">
+    <section class="hero head is-medium is-bold">
       <div class="hero-body">
         <router-link tag="li" to="/">
           <a><img src="../assets/logo.png" class="logo"></a>
@@ -19,8 +18,12 @@
         </div>
       </div>
     </section>
-    <foodspanal :foods="foods"></foodspanal>
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <foodspanal :foods="foods"></foodspanal>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -102,5 +105,10 @@ a {
 }
 .logo {
   height: 80px;
+}
+.hero.head {
+
+  background-image: url('../assets/24840.jpg');
+  background-size: cover;
 }
 </style>
