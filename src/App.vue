@@ -13,7 +13,8 @@ export default {
 <style>
 @import url('https://fonts.google.com/specimen/Poiret+One?selection.family=Poiret+One');
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
+  font-family: 'Kanit', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
