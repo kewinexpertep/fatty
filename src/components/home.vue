@@ -52,12 +52,12 @@
         <div class="columns is-centered">
           <div class="column is-7">
             <b-field label="ชื่อ">
-          <b-input type="number" placeholder="ชื่อ" v-model="subid"></b-input>
+          <b-input type="text" placeholder="ชื่อ" v-model="name"></b-input>
         </b-field>
           </div>
           <div class="column">
           <b-field label="อายุ">
-          <b-input type="number" placeholder="อายุ" v-model="subid"></b-input>
+          <b-input type="number" placeholder="อายุ" v-model="age"></b-input>
         </b-field>
         </div>
         </div>
@@ -66,11 +66,11 @@
         <div class="column">
             <b-field label="เพศ">
           <div class="block">
-            <b-radio v-model="radio"
+            <b-radio v-model="sex"
                 native-value="male">
                 ชาย
             </b-radio>
-            <b-radio v-model="radio"
+            <b-radio v-model="sex"
                 native-value="female">
                 หญิง
             </b-radio>
@@ -82,18 +82,32 @@
       <div class="columns">
         <div class="column">
           <b-field label="น้ำหนัก">
-          <b-input type="number" placeholder="น้ำหนัก" v-model="subid"></b-input>
+          <b-input type="number" placeholder="น้ำหนัก" v-model="weight"></b-input>
         </b-field>
         </div>
         <div class="column">
           <b-field label="ส่วนสูง">
-          <b-input type="number" placeholder="ส่วนสูง" v-model="subid"></b-input>
+          <b-input type="number" placeholder="ส่วนสูง" v-model="height"></b-input>
         </b-field>
         </div>
       </div>
 
+    <div class="columns is-centered">
+      <b-field label="ระดับการออกกำลังกายของคุณ">
+            <b-select placeholder="Select a character" required>
+                <option value="flint">น้อย หรือไม่ค่อยออกกำลังกาย</option>
+                <option value="silver">ปานกลาง ออกกำลังกาย 1-3 ครั้งต่อสัปดาห์</option>
+                <option value="flint">ค่อนข้างหนัก ออกกำลังกาย 4-5 ครั้งต่อสัปดาห์</option>
+                <option value="silver">หนัก ออกกำลังกาย 6-7 ครั้งต่อสัปดาห์</option>
+                <option value="silver">หนักมาก ออกกำลังกายวันละ 2 ครั้งขึ้นไป</option>
+            </b-select>
+        </b-field>
+    </div>
+
         <div class="columns is-centered">
-          <button class="button is-success " @click="addSub(subid, subname, unit, grade)">ตกลง</button>
+          <div class="column">
+            <button class="button is-success " @click="addProfile(name, sex, age, weight, height)">คำนวณ</button>
+          </div>
         </div>
       </div>
     </b-modal>
