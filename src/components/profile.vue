@@ -26,38 +26,61 @@
         </h1>
       </div>
    </nav>
-   <nav class="level is-mobile">
-      <div class="level-item has-text-centered">
+    <div class="card">
+      <div class="card-content">
+        <p class="title">
+          <label class="">name:  {{profile.name}}</label>
+        </p>
+        <a class="subtitle">
+              <p class="title is-5">name:  {{profile.name}}</p>
+              <p class="title is-5">age:  {{profile.age}} years</p>
+              <p class="title is-5">sex:  {{profile.sex}}</p>
+              <p class="title is-5">weight:  {{profile.weight}} kg</p>
+              <p class="title is-5">height:  {{profile.height}} cm</p>
+              <p class="title is-5">bmi:  {{bmi}}</p>
+              <p class="title is-5">bmr:  {{bmr}}</p>
+              <p class="title is-5">tdee:  {{tdee}}</p>
+        </a>
       </div>
-      <div class="level-item has-text-centered">
-        <div class="has-text-left">
-          <p class="title is-5">you need</p>
-          <p class="title is-5">Power <strong class="name">{{sumCal}} Kcal</strong></p>
-          <p class="title is-6">See more</p>
-        </div>
-      </div>
-       <div class="level-item has-text-left">
-        <div class="hero is-medium is-primary is-bold column is-7 is-offset-2">
-          <p class="title is-5">name:  {{profile.name}}</p>
-          <p class="title is-5">age:  {{profile.age}} years</p>
-          <p class="title is-5">sex:  {{profile.sex}}</p>
-          <p class="title is-5">weight:  {{profile.weight}} kg</p>
-          <p class="title is-5">height:  {{profile.height}} cm</p>
-          <p class="title is-5">bmi:  {{bmi}}</p>
-          <p class="title is-5">bmr:  {{bmr}}</p>
-          <p class="title is-5">tdee:  {{tdee}}</p>
-
-        </div>
-      </div>
-   </nav>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <span>
+              แคลลอรี่ที่เหลือต่อวัน ............
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
+            </span>
+          </p>
+          <p class="card-footer-item">
+            <span>
+              อะไรดี
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
+            </span>
+          </p>
+        </footer>
+</div>
     <!-- <div class="column" v-for="food in foods" :key="food.Food_ID"> -->
+    <div class="card">
+      <div class="card-content">
+        <p class="title">
+        </p>
+        <a class="subtitle">
+
+        </a>
+      </div>
+      </div>
+
     <div class="column">
       <foodspanal :foods="cart"></foodspanal>
     </div>
+      <div class="card">
+      <div class="card-content">
     <div><h1 class="title is-1">Total <strong>{{sumCal}}</strong>  Kcal</h1></div>
     <div class="columns">
       <div class="column">
-        <div class="hero is-primary is-bold column is-12 is-offset-1">
+        <div class="hero  is-bold column is-12 is-offset-1">
           <p class="title is-5">sex: {{sumCal}}</p>
           <p class="title is-5">age: 13 years</p>
           <p class="title is-5">weight: 55 kg</p>
@@ -65,7 +88,7 @@
         </div>
       </div>
       <div class="column">
-        <div class="hero is-primary is-bold column is-12 is-offset-1">
+        <div class="hero  is-bold column is-12 is-offset-1">
           <p class="title is-5">sex: female</p>
           <p class="title is-5">age: 13 years</p>
           <p class="title is-5">weight: 55 kg</p>
@@ -73,13 +96,15 @@
         </div>
       </div>
       <div class="column">
-        <div class="hero is-primary is-bold column is-12 is-offset-1">
+        <div class="hero  is-bold column is-12 is-offset-1">
           <p class="title is-5">sex: female</p>
           <p class="title is-5">age: 13 years</p>
           <p class="title is-5">weight: 55 kg</p>
           <p class="title is-5">height: 166 cm</p>
         </div>
       </div>
+    </div>
+    </div>
     </div>
     </div>
   </div>
