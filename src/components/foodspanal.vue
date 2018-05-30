@@ -200,7 +200,7 @@ export default {
       if (index > -1) {
         return 'X' + this.amount[index].qty
       }
-      return 'X0'
+      return ''
     }
   },
   computed: {

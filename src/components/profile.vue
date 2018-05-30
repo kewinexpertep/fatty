@@ -60,10 +60,9 @@
     <div class="columns">
       <div class="column">
         <div class="hero  is-bold column is-12 is-offset-1">
-          <p class="title is-5">sex: {{sumCal}}</p>
-          <p class="title is-5">age: 13 years</p>
-          <p class="title is-5">weight: 55 kg</p>
-          <p class="title is-5">height: 166 cm</p>
+          <p class="title is-5" v-if="tdee-sumCal > 0">พลังงานที่คุณขาด</p>
+          <p class="title is-5" v-else>พลังงานที่เกิน </p>
+          <p class="title is-4"> {{Math.abs(tdee-sumCal)}} Kcal</p>
         </div>
       </div>
       <div class="column">
