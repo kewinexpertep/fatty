@@ -1,47 +1,56 @@
 <template>
   <div class="hello">
-
-    <!-- <div v-for="food in foods" :key="food.memid">
-      {{food.foodname}}</div> -->
+    <section class="hero head is-medium is-bold">
+          <nav class="navbar is-transparent">
+            <div id="navbarExampleTransparentExample" class="navbar-menu">
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="field is-grouped">
+                    <p class="control">
+                      <a class="button is-info">
+                        <span class="fas fa-home">
+                          <i class="fas fa-info-circle"></i>
+                        </span>
+                        <span> &nbsp; <router-link tag="li" to="/">HOME</router-link></span>
+                      </a>
+                     </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+      <div class="hero-body head">
+        <div class="columns is-centered">
+          <div class="column is-8 is-mobile-10">
+            <router-link tag="li" to="/">
+              <a><img src="../assets/logo.png" class="logo"></a>
+            </router-link><br>
+            <p class="title is-5" style="color:white;"> ร่างกายคุณต้องการพลังงาน {{tdee}} Kcal ต่อวัน</p>
+          </div>
+          <div class="column is-3 is-mobile-10">
+            <div class="card">
+              <div class="card-content">
+                <p class="title">
+                  <label class="">name:  {{profile.name}}</label>
+                </p>
+                <a class="subtitle">
+                      <p class="title is-6">name:  {{profile.name}}</p>
+                      <p class="title is-6">age:  {{profile.age}} years</p>
+                      <p class="title is-6">sex:  {{profile.sex}}</p>
+                      <p class="title is-6">weight:  {{profile.weight}} kg</p>
+                      <p class="title is-6">height:  {{profile.height}} cm</p>
+                      <p class="title is-6">bmi:  {{bmi}}</p>
+                      <p class="title is-6">bmr:  {{bmr}}</p>
+                      <p class="title is-6">tdee:  {{tdee}}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="column is-8 is-offset-2">
-    <nav class="level is-mobile">
-      <div class="level-item has-text-centered">
-        <router-link tag="li" to="/">
-          <a><img src="../assets/logo.png" class="logo"></a>
-        </router-link>
-      </div>
-      <div class="level-item has-text-centered">
-        <b-field lable="search">
-            <b-input v-model="keyword"
-            placeholder="อาหารที่ต้องการค้นหา"
-            @keyup.native.enter="enter"
-            @input="search()"
-            ></b-input>
-            <button class="button is-danger" @click="search()">search</button>
-        </b-field>
-      </div>
-       <div class="level-item has-text-centered">
-        <h1 class="title">
-          icon
-        </h1>
-      </div>
-   </nav>
     <div class="card">
-      <div class="card-content">
-        <p class="title">
-          <label class="">name:  {{profile.name}}</label>
-        </p>
-        <a class="subtitle">
-              <p class="title is-5">name:  {{profile.name}}</p>
-              <p class="title is-5">age:  {{profile.age}} years</p>
-              <p class="title is-5">sex:  {{profile.sex}}</p>
-              <p class="title is-5">weight:  {{profile.weight}} kg</p>
-              <p class="title is-5">height:  {{profile.height}} cm</p>
-              <p class="title is-5">bmi:  {{bmi}}</p>
-              <p class="title is-5">bmr:  {{bmr}}</p>
-              <p class="title is-5">tdee:  {{tdee}}</p>
-        </a>
-      </div>
     <div class="column">
       <foodspanal :foods="cart"></foodspanal>
     </div>
@@ -177,6 +186,12 @@ a {
   color: #42b983;
 }
 .logo {
-  height: 50px;
+  height: 100px;
+}
+.hero.head {
+
+  background-image: url('../assets/24840.jpg');
+  background-size: cover;
+
 }
 </style>

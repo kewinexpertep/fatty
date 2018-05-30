@@ -45,8 +45,7 @@
               <div class="field">
                 <span class="control">
                    <p class="title is-3">{{food.Energy}}</p>
-                   <p class="title is-5">Kcal</p>
-                   <p class="title is-6">{{showQty(food)}}</p>
+                   <p class="title is-5">Kcal {{showQty(food)}}</p>
                 </span>
               </div>
             </div>
