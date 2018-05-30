@@ -31,10 +31,10 @@
             <div class="card">
               <div class="card-content">
                 <p class="title">
-                  <label class="">name:  {{profile.name}}</label>
+                  <label class="">ข้อมูลส่วนตัว</label>
                 </p>
                 <a class="subtitle">
-                      <p class="title is-6">name:  {{profile.name}}</p>
+                      <p class="title is-4">name: {{profile.name}}</p>
                       <p class="title is-6">age:  {{profile.age}} years</p>
                       <p class="title is-6">sex:  {{profile.sex}}</p>
                       <p class="title is-6">weight:  {{profile.weight}} kg</p>

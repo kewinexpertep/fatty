@@ -5,12 +5,12 @@ import { firebaseMutations } from 'vuexfire'
 import router from '../router/index'
 
 let config = {
-  apiKey: 'AIzaSyBc4GvjjmZMezOuv2fc8FOUiPcyttLPmuw',
-  authDomain: 'battleship-d7f88.firebaseapp.com',
-  databaseURL: 'https://battleship-d7f88.firebaseio.com',
-  projectId: 'battleship-d7f88',
-  storageBucket: '',
-  messagingSenderId: '211714676183'
+  apiKey: 'AIzaSyAX4sgFCzQIYLomdE2nsY4XcKpnPOrNIOU',
+  authDomain: 'fatty-eec26.firebaseapp.com',
+  databaseURL: 'https://fatty-eec26.firebaseio.com',
+  projectId: 'fatty-eec26',
+  storageBucket: 'fatty-eec26.appspot.com',
+  messagingSenderId: '1032630764234'
 }
 var firebaseApp = firebase.initializeApp(config)
 let provider = new firebase.auth.FacebookAuthProvider()
@@ -27,12 +27,12 @@ export const store = new Vuex.Store({
     cart: [],
     amount: [],
     profile: {
-      name: 'am',
-      sex: 'female',
-      age: '21',
-      weight: '43',
-      height: '155',
-      activity: '1'
+      name: '',
+      sex: '',
+      age: '',
+      weight: '',
+      height: '',
+      activity: ''
     }
   },
   getters: {
@@ -60,6 +60,7 @@ export const store = new Vuex.Store({
     },
     saveprofile ({commit}, {name, sex, age, weight, height, activity}) {
       commit('setprofile', {name, sex, age, weight, height, activity})
+      shipsetRef.push({name, sex, age, weight, height, activity})
     }
   }
 })

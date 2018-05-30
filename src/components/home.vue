@@ -94,24 +94,22 @@
 
     <div class="columns is-centered">
       <b-field label="ระดับการออกกำลังกายของคุณ">
-            <b-select v-model="activity" placeholder="Select a character" required>
-                <option value="1">น้อย หรือไม่ค่อยออกกำลังกาย</option>
-                <option value="2">ปานกลาง ออกกำลังกาย 1-3 ครั้งต่อสัปดาห์</option>
-                <option value="3">ค่อนข้างหนัก ออกกำลังกาย 4-5 ครั้งต่อสัปดาห์</option>
-                <option value="4">หนัก ออกกำลังกาย 6-7 ครั้งต่อสัปดาห์</option>
-                <option value="5">หนักมาก ออกกำลังกายวันละ 2 ครั้งขึ้นไป</option>
-            </b-select>
-        </b-field>
+        <b-select v-model="activity" placeholder="Select a character" required>
+            <option value="1">น้อย หรือไม่ค่อยออกกำลังกาย</option>
+            <option value="2">ปานกลาง ออกกำลังกาย 1-3 ครั้งต่อสัปดาห์</option>
+            <option value="3">ค่อนข้างหนัก ออกกำลังกาย 4-5 ครั้งต่อสัปดาห์</option>
+            <option value="4">หนัก ออกกำลังกาย 6-7 ครั้งต่อสัปดาห์</option>
+            <option value="5">หนักมาก ออกกำลังกายวันละ 2 ครั้งขึ้นไป</option>
+        </b-select>
+      </b-field>
     </div>
-
         <div class="columns is-centered">
           <div class="column">
-            <button class="button is-success " @click="addProfile(name, sex, age, weight, height, activity)">ตกลง</button>
+            <button class="button is-success" @click="addProfile(name, sex, age, weight, height, activity)">ตกลง</button>
           </div>
         </div>
       </div>
     </b-modal>
-
   </div>
 </template>
 
