@@ -36,8 +36,8 @@
                 </span>
                 <a class="is-info" @click="showSeemore(food)">See more</a>
               </div>
-              <button class="button is-danger" @click="AddCart(food)">Eat</button>
-              <button class="button is-danger" @click="ClearFood(food)">Clear</button>
+              <button class="button is-danger" @click="AddCart(food)" >Eat</button>
+              <button class="button is-danger" @click="ClearFood(food)" v-if="showQty(food) !== ''">Clear</button>
             </div>
           </div>
           <div class="column is-3 is-offset-1">
