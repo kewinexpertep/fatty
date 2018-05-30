@@ -11,7 +11,7 @@
                         <span class="fas fa-home">
                           <i class="fas fa-info-circle"></i>
                         </span>
-                        <span> &nbsp; <router-link tag="li" to="/">HOME</router-link></span>
+                        <span><router-link tag="li" to="/">HOME</router-link></span>
                       </a>
                      </p>
                   </div>
@@ -60,17 +60,19 @@
     <div class="columns">
       <div class="column">
         <div class="hero  is-bold column is-12 is-offset-1">
-          <p class="title is-5" v-if="tdee-sumCal > 0">พลังงานที่คุณขาด</p>
-          <p class="title is-5" v-else>พลังงานที่เกิน </p>
+          <span v-if="tdee-sumCal > 0">พลังงานที่คุณขาด</span>
+          <span v-else>พลังงานที่เกิน </span>
           <p class="title is-4"> {{Math.abs(tdee-sumCal)}} Kcal</p>
         </div>
       </div>
       <div class="column">
         <div class="hero  is-bold column is-12 is-offset-1">
-          <p class="title is-5">sex: female</p>
-          <p class="title is-5">age: 13 years</p>
-          <p class="title is-5">weight: 55 kg</p>
-          <p class="title is-5">height: 166 cm</p>
+          ค่าดัชนีมวลกายของคุณ {{bmi}}
+          <p class="title is-5" v-if="bmi < 18.5">น้ำหนักน้อย / ผอม</p>
+          <p class="title is-5" v-else-if="bmi < 22.90">ปกติ (สุขภาพดี)</p>
+          <p class="title is-5" v-else-if="bmi < 29.90">ท้วม / โรคอ้วนระดับ 1</p>
+          <p class="title is-5" v-else-if="bmi < 29.90">อ้วน / โรคอ้วนระดับ 2</p>
+          <p class="title is-5" v-else-if="bmi > 30">อ้วนมาก / โรคอ้วนระดับ 3</p>
         </div>
       </div>
       <div class="column">
