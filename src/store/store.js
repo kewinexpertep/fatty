@@ -59,8 +59,36 @@ export const store = new Vuex.Store({
       context.commit('setCart', objs)
     },
     saveprofile ({commit}, {name, sex, age, weight, height, activity}) {
+      var bmiSum = weight / ((height / 100) * (height / 100))
+      var bmr
+      var bmrSum
+      bmiSum = parseFloat(bmiSum).toFixed(2)
+      if (sex === 'female') {
+        bmr = 665 + (9.6 * weight) + (1.8 * height) - (4.7 * age)
+      } else {
+        bmr = 66 + (13.7 * weight) + (5 * height) - (6.8 * age)
+      }
+      bmrSum = parseFloat(bmr).toFixed(2)
+      var tdee
+      var tdeeSum
+      if (activity === '1') {
+        tdee = (1.2 * bmr)
+        tdeeSum = parseFloat(tdee).toFixed(2)
+      } else if (activity === '2') {
+        tdee = (1.375 * bmr)
+        tdeeSum = parseFloat(tdee).toFixed(2)
+      } else if (activity === '3') {
+        tdee = (1.55 * bmr)
+        tdeeSum = parseFloat(tdee).toFixed(2)
+      } else if (activity === '4') {
+        tdee = (1.7 * bmr)
+        tdeeSum = parseFloat(tdee).toFixed(2)
+      } else {
+        tdee = (1.9 * bmr)
+        tdeeSum = parseFloat(tdee).toFixed(2)
+      }
       commit('setprofile', {name, sex, age, weight, height, activity})
-      shipsetRef.push({name, sex, age, weight, height, activity})
+      shipsetRef.push({name, sex, age, weight, height, activity, bmiSum, bmrSum, tdeeSum})
     }
   }
 })
