@@ -59,14 +59,14 @@
     <div><h1 class="title is-1">Total <strong>{{sumCal}}</strong>  Kcal</h1></div>
     <div class="columns">
       <div class="column">
-        <div class="hero  is-bold column is-12 is-offset-1">
+        <div class="hero  is-bold column is-12 is-offset-1"><br>
           <span v-if="tdee-sumCal > 0">พลังงานที่คุณขาด</span>
           <span v-else>พลังงานที่เกิน </span>
           <p class="title is-4"> {{Math.abs(tdee-sumCal)}} Kcal</p>
         </div>
       </div>
       <div class="column">
-        <div class="hero  is-bold column is-12 is-offset-1">
+        <div class="hero  is-bold column is-12 is-offset-1"><br>
           ค่าดัชนีมวลกายของคุณ {{bmi}}
           <p class="title is-5" v-if="bmi < 18.5">น้ำหนักน้อย / ผอม</p>
           <p class="title is-5" v-else-if="bmi < 22.90">ปกติ (สุขภาพดี)</p>
@@ -76,11 +76,10 @@
         </div>
       </div>
       <div class="column">
-        <div class="hero  is-bold column is-12 is-offset-1">
-          <p class="title is-5">sex: female</p>
-          <p class="title is-5">age: 13 years</p>
-          <p class="title is-5">weight: 55 kg</p>
-          <p class="title is-5">height: 166 cm</p>
+        <div class="hero is-bold column is-12 is-offset-1">
+            bmi : {{bmi}}<progress class="progress is-success" :value="bmi" max="40"></progress>
+            bmr : {{bmr}}<progress class="progress is-warning" :value="bmr" max="3000"></progress>
+            tdee : {{tdee}}<progress class="progress is-info" :value="tdee" max="3000"></progress>
         </div>
       </div>
     </div>

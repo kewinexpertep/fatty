@@ -82,12 +82,12 @@
       <div class="columns">
         <div class="column">
           <b-field label="น้ำหนัก">
-          <b-input type="number" placeholder="น้ำหนัก" v-model="weight"></b-input>
+          <b-input type="number" placeholder="น้ำหนัก" v-model="weight" max="150" min="20"></b-input>
         </b-field>
         </div>
         <div class="column">
           <b-field label="ส่วนสูง">
-          <b-input type="number" placeholder="ส่วนสูง" v-model="height"></b-input>
+          <b-input type="number" placeholder="ส่วนสูง" v-model="height" min="100" max='200'></b-input>
         </b-field>
         </div>
       </div>
@@ -154,9 +154,22 @@ export default {
     },
     search () {
       let self = this
-      axios.get('//fatty-db.herokuapp.com?crud=search&key=' + this.keyword).then(function (response) {
-        self.foods = response.data.foods
-      })
+      var cdata = this.keyword.split(' ')
+      if (cdata.length === 1) {
+        axios.get('//fatty-db.herokuapp.com?crud=search&key=' + this.keyword).then(function (response) {
+          self.foods = response.data.foods
+        })
+      } else {
+        var str = '//fatty-db.herokuapp.com?crud=searches'
+        for (var i = 0; i < cdata.length; i++) {
+          str += '&key[]=' + cdata[i]
+        }
+        console.log(str)
+        axios.get(str).then(function (response) {
+          self.foods = response.data.foods
+        })
+      }
+      console.log(self.foods)
     },
     getAllMembers: function () {
       let self = this
